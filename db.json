@@ -1,0 +1,20 @@
+{
+  "employees": [
+    {
+      "name": "amaan kela",
+      "email": "amaan@test.com",
+      "age": 22,
+      "phone": "9730227896",
+      "role": "developer",
+      "id": "202a"
+    },
+    {
+      "id": "d62d",
+      "name": "arif",
+      "email": "huzaifa@test.com",
+      "age": 34,
+      "phone": "9730227890",
+      "role": "accountant"
+    }
+  ]
+}
