@@ -21,6 +21,7 @@ export class ManageEmployeeComponent {
 
   ngOnInit() {
     this.loadEmployees();
+    
   }
 
   loadEmployees() {
