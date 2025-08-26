@@ -1,0 +1,28 @@
+<div class="container">
+  <h2 class="logo">Employee List</h2>
+  <div *ngIf="user.length === 0" class="no-users">
+    No Users Found.
+  </div>
+
+  <div *ngFor="let empl of user" class="employee-card">
+    <div class="emp-details">
+      <p><strong>Name: </strong> {{ empl.name }}</p>
+      <p><strong>Email: </strong> {{ empl.email }}</p>
+      <p><strong>Age: </strong> {{ empl.age }}</p>
+      <p><strong>Phone no: </strong> {{ empl.phone }}</p>
+      <p><strong>Role: </strong> {{ empl.role }}</p>
+    </div>
+
+    <div class="actions">
+      <button class="btn edit" [routerLink]= "['/addEmployee',empl.id]">Edit</button>
+      <button class="btn delete" (click)="deleteEmployee(empl.id)">
+        Delete
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- <router-outlet /> -->
+
+
+

@@ -1,0 +1,178 @@
+.container1 {
+  height: fit-content;
+  max-width: 600px;
+  width: 100%;
+  margin: 65px auto 0;
+  border-radius: 15px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+.fieldbox {
+  width: 100%;
+  max-width: 450px;
+  height: 40px;
+  padding: 10px;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+  font-size: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+label {
+  font-size: 25px;
+}
+
+button {
+  width: 150px;
+  height: 40px;
+  padding: 10px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  background-color: green;
+  color: white;
+  font-size: 18px;
+  border-radius: 10px;
+  border: #218838;
+}
+
+.heading {
+  padding-top: 20px;
+  font-size: 30px;
+  text-align: center;
+  color: green;
+}
+
+form {
+  margin-left: 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+span {
+  color: red;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #218838;
+  cursor: pointer;
+}
+
+.submit-button:disabled {
+  background-color: rgb(69, 186, 69);
+  color: #f4f4f4;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+@media (max-width: 768px) {
+  .container1 {
+    max-width: 90%;
+    margin: 40px auto 0;
+  }
+
+  .fieldbox {
+    max-width: 100%;
+    font-size: 18px;
+  }
+
+  label {
+    font-size: 22px;
+  }
+
+  button {
+    width: 120px;
+    font-size: 16px;
+  }
+
+  form {
+    margin-left: 20px;
+  }
+
+  .heading {
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container1 {
+    max-width: 100%;
+    margin: 20px 10px 0;
+    border-radius: 10px;
+  }
+
+  .fieldbox {
+    max-width: 100%;
+    height: 35px;
+    font-size: 16px;
+    padding: 8px;
+  }
+
+  label {
+    font-size: 18px;
+  }
+
+  button {
+    width: 100%;
+    height: 45px;
+    font-size: 16px;
+  }
+
+  form {
+    margin-left: 0;
+    padding: 0 10px;
+    align-items: center;
+  }
+
+  .heading {
+    font-size: 24px;
+    padding-top: 10px;
+  }
+
+  span {
+    font-size: 14px;
+  }
+}
+
+.custom-message {
+  padding: 12px 20px;
+  border-radius: 6px;
+  margin: 15px 0;
+  text-align: center;
+  font-weight: bold;
+  animation: fadeInOut 2s ease-in-out;
+}
+
+.success-msg {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.error-msg {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  90% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+

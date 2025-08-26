@@ -1,0 +1,15 @@
+.img-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin-top: 50px;
+}
+.full-page-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  filter: brightness(.9) contrast(1.4);
+  background-color: white;
+  
+}

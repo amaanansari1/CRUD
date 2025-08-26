@@ -1,0 +1,160 @@
+<div class="container1">
+  <h2 class="heading">Enter Employee Details</h2>
+
+  <br /><br />
+  <div
+    *ngIf="showMessage"
+    [ngClass]="{
+      'success-msg': messageType === 'success',
+      'error-msg': messageType === 'error'
+    }"
+    class="custom-message"
+  >
+    {{ message }}
+  </div>
+  <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm.value)">
+    <label>Name: </label>
+    <br />
+    <input
+      class="fieldbox"
+      type="text"
+      name="name"
+      [ngModel]="selectedUser?.name"
+      required
+      minlength="3"
+      #name="ngModel"
+      placeholder="Enter Name"
+      pattern="^[a-zA-Z ]+$"
+    />
+
+    <div *ngIf="name.invalid && name.touched">
+      <span *ngIf="name.errors?.['required']">
+        <span>&#9888;</span>
+        <span> Name is required.</span>
+      </span>
+
+      <span *ngIf="name.errors?.['minlength']">
+        <span>&#9888;</span>
+        <span> Name must be 3 character long. </span>
+      </span>
+
+      <span *ngIf="name.errors?.['pattern']">
+        <span>&#9888;</span>
+        <span> Name must be valid</span>
+      </span>
+    </div>
+    <br />
+
+    <label>Email: </label>
+    <br />
+
+    <input
+      class="fieldbox"
+      type="email"
+      name="email"
+      [ngModel]="selectedUser?.email"
+      required
+      placeholder="Enter Email"
+      pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+      #email="ngModel"
+    />
+
+    <div *ngIf="email.invalid && email.touched">
+      <span *ngIf="email.errors?.['required']">
+        <span>&#9888;</span>
+        <span> Email is required.</span>
+      </span>
+
+      <span *ngIf="email.errors?.['pattern']">
+        <span>&#9888;</span>
+        <span> Enter valid email.</span>
+      </span>
+    </div>
+    <br />
+
+    <label>Age: </label>
+    <br />
+    <input
+      class="fieldbox"
+      type="number"
+      name="age"
+      [ngModel]="selectedUser?.age"
+      required
+      min="18"
+      max="70"
+      placeholder="Enter Age"
+      #age="ngModel"
+    />
+
+    <div *ngIf="age.invalid && age.touched">
+      <span *ngIf="age.errors?.['required']">
+        <span>&#9888;</span>
+        Age is required.
+      </span>
+      <span *ngIf="age.errors?.['min']">
+        <span>&#9888; </span>
+        Age must be at least 18.
+      </span>
+      <span *ngIf="age.errors?.['max']">
+        <span>&#9888;</span>
+        Age must not be more than 70
+      </span>
+    </div>
+
+    <br />
+
+    <label>Phone no: </label>
+    <br />
+
+    <input
+      class="fieldbox"
+      type="tel"
+      name="phone"
+      required
+      [ngModel]="selectedUser?.phone"
+      placeholder="Enter Phone no"
+      #phone="ngModel"
+      pattern="^[0-9]{10}$"
+    />
+
+    <div *ngIf="phone.invalid && phone.touched">
+      <span *ngIf="phone.errors?.['required']">
+        <span>&#9888;</span>
+        Phone number is required.
+      </span>
+
+      <span *ngIf="phone.errors?.['pattern']">
+        <span>&#9888;</span>
+        Phone number must be 10 digits.
+      </span>
+    </div>
+
+    <br />
+
+    <label>Role: </label>
+    <br />
+    <input
+      class="fieldbox"
+      type="text"
+      name="role"
+      [ngModel]="selectedUser?.role"
+      required
+      placeholder="Enter employee role"
+      #role="ngModel"
+    />
+
+    <div *ngIf="role.invalid && role.touched">
+      <span *ngIf="role.errors?.['required']">
+        <span>&#9888;</span>
+        Role is required.
+      </span>
+    </div>
+
+    <br />
+    <div>
+      <button type="submit" class="submit-button" [disabled]="userForm.invalid">
+        {{ isEditMode ? "Update User" : "Add User" }}
+      </button>
+    </div>
+  </form>
+</div>

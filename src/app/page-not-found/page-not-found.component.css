@@ -1,0 +1,38 @@
+.img-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin-top: 50px;
+}
+.full-page-image {
+  max-width: 80%;
+  height: auto;
+  border-radius: 8px;
+  filter: brightness(0.9) contrast(1.4);
+  background-color: white;
+}
+
+.container {
+ display: flex;
+ justify-content: center;
+ margin-left: 40px;
+ align-items: center;
+ height: 12vh;
+}
+
+button {
+  padding: 10px;
+  border: radius;
+  border-radius: 8px;
+  color: white;
+  background-color: green;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+button:hover {
+    background-color: darkgreen;
+    transition: 0.2 ease-in-out;
+}
