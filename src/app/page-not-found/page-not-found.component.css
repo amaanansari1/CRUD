@@ -14,11 +14,11 @@
 }
 
 .container {
- display: flex;
- justify-content: center;
- margin-left: 40px;
- align-items: center;
- height: 12vh;
+  display: flex;
+  justify-content: center;
+  margin-left: 40px;
+  align-items: center;
+  height: 12vh;
 }
 
 button {
@@ -30,9 +30,10 @@ button {
   border: none;
   font-size: 20px;
   cursor: pointer;
+  font-weight: bolder;
 }
 
 button:hover {
-    background-color: darkgreen;
-    transition: 0.2 ease-in-out;
+  background-color: darkgreen;
+  transition: 0.2 ease-in-out;
 }

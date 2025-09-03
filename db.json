@@ -1,12 +1,12 @@
 {
   "employees": [
     {
-      "id": "d62d",
-      "name": "arif",
-      "email": "huzaifa@test.com",
-      "age": 34,
-      "phone": "9730227890",
-      "role": "accountant"
+      "id": "19d4",
+      "name": "amaan",
+      "email": "amaan@test.com",
+      "age": 18,
+      "phone": "9730227896",
+      "role": "developer"
     }
   ]
 }

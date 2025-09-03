@@ -1,18 +1,22 @@
 import { Component } from '@angular/core';
 import { employees } from '../interfaces/employees';
 import { EmployeesService } from '../services/employees.service';
-import { CommonModule, NgFor } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-manage-employee',
   standalone: true,
-  imports: [CommonModule, RouterLink, RouterOutlet],
+  imports: [CommonModule, RouterLink],
   templateUrl: './manage-employee.component.html',
-  styleUrl: './manage-employee.component.css',
+  styleUrls: ['./manage-employee.component.css'],
 })
 export class ManageEmployeeComponent {
   user: employees[] = [];
+  showPopup = false;
+  selectedEmployeeId: string | null = null;
+  showToast = false;
+  toastMessage = '';
 
   constructor(
     private employeeService: EmployeesService,
@@ -21,7 +25,6 @@ export class ManageEmployeeComponent {
 
   ngOnInit() {
     this.loadEmployees();
-    
   }
 
   loadEmployees() {
@@ -30,12 +33,35 @@ export class ManageEmployeeComponent {
     });
   }
 
-  deleteEmployee(id: string) {
-    if (confirm('Are you sure you want to delete ?')) {
-      this.employeeService.deleteEmployees(id).subscribe(() => {
-        console.log(`Deleted User ID ${id}`);
+  // open popup
+  confirmDelete(id: string) {
+    this.selectedEmployeeId = id;
+    this.showPopup = true;
+  }
+
+  // cancel popup
+  cancelDelete() {
+    this.showPopup = false;
+    this.selectedEmployeeId = null;
+  }
+
+  // delete employee
+  deleteEmployee() {
+    if (this.selectedEmployeeId) {
+      this.employeeService.deleteEmployees(this.selectedEmployeeId).subscribe(() => {
         this.loadEmployees();
+        this.showPopup = false;
+        this.showToastMessage('Deleted successfully ✅');
       });
     }
+  }
+
+  // toast logic
+  showToastMessage(message: string) {
+    this.toastMessage = message;
+    this.showToast = true;
+    setTimeout(() => {
+      this.showToast = false;
+    }, 3000);
   }
 }
